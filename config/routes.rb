@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :schools
   root to: 'admin/dashboard#index'
+  # get 'admin/schools' => 'admin/dashboard#index', as: 'admin_dashboard'
+  # get 'admin/temp_teacher' => 'application#temp_teacher', as: 'temp_teacher'
+  # get 'admin/temp_admin' => 'application#temp_admin', as: 'temp_admin'
   devise_for :users
   ActiveAdmin.routes(self)
 
