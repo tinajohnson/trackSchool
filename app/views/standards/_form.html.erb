@@ -1,0 +1,22 @@
+<%= form_for(@standard) do |f| %>
+  <% if @standard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@standard.errors.count, "error") %> prohibited this standard from being saved:</h2>
+
+      <ul>
+      <% @standard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :standard_name %><br>
+    <%= f.text_field :standard_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

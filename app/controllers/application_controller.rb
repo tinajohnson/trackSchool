@@ -14,16 +14,16 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys:[:role])
   end
 
-  # def after_sign_in_path_for(resource)
-  #   # Here you can write logic based on roles to return different after sign in paths
-  #   if current_user.role?(:teacher)
-  #     temp_teacher_path
-  #   elsif current_user.role?(:rb)
-  #       admin_dashboard_path
-  #   elsif current_user.role?(:admin)
-  #     temp_admin_path
-  #   end
-  # end
+  def after_sign_in_path_for(resource)
+    # Here you can write logic based on roles to return different after sign in paths
+    # if current_user.role?(:admin)
+
+    if current_user.role?(:rb)
+        root_path
+    elsif current_user.role?(:admin)
+        sadmin_path
+    end
+  end
 
 
   def authenticate_admin_user!
@@ -39,13 +39,9 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
-  # def temp_teacher
-  #   render "temp_teacher"
-  # end
-  #
-  # def temp_admin
-  #   render "temp_admin"
-  # end
+  def school_admin
+    render 'admin/index'
+  end
 
 end
 
