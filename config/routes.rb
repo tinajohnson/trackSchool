@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :students
   resources :sections
   resources :standards
   resources :schools
   root to: 'admin/dashboard#index'
   get '/sadmin' => "sadmin#index", as: :sadmin
+  get '/assign' => "class_mapping#assign", as: :class_mapping
   devise_for :users
   ActiveAdmin.routes(self)
 
