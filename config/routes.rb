@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :students
+  resources :attendances
   resources :class_mappings
   resources :sections
   resources :standards
