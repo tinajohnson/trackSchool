@@ -20,7 +20,9 @@ class ApplicationController < ActionController::Base
 
     if current_user.role?(:rb)
         root_path
-    elsif current_user.role?(:admin)
+    elsif current_user.role?(:teacher)
+        teacher_path
+    else current_user.role?(:admin)
         sadmin_path
     end
   end
