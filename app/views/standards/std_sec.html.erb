@@ -1,0 +1,16 @@
+
+<a class='dropdown-button btn-large'  data-activates='dropdown1' style="font-size:15; position:absolute; TOP:125px; LEFT:600px; ">Standards</a>
+
+<!-- Dropdown Structure -->
+<ul id='dropdown1' class='dropdown-content'>
+  <% stnd = Standard.all %>
+  <% stnd.each do |stnd| %>
+      <li style="font-size:15"><a href='/sections_choose'><%= stnd.standard_name %></a></li>
+  <% end %>
+
+</ul>
+
+
+
+
+
