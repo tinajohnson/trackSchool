@@ -1,13 +1,14 @@
-There are 3 roles for a user signup: 
+==There are 3 roles for a user signup:
 
-Default RB user login:
+<b>Default RB user login:</b>
 username: rb@mail.com
 password: default
 
-Default School Admin login:
+<b>Default School Admin login:</b>
+
 username: adminschool@mail.com
 password: default
 
-Default Teacher login:
+<b>Default Teacher login:</b>
 username: teacher@mail.com
 password: default
