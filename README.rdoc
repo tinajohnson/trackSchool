@@ -1,28 +1,13 @@
-== README
+There are 3 roles for a user signup: 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Default RB user login:
+username: rb@mail.com
+password: default
 
-Things you may want to cover:
+Default School Admin login:
+username: adminschool@mail.com
+password: default
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Default Teacher login:
+username: teacher@mail.com
+password: default
