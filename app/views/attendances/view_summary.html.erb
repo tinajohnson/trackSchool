@@ -1,0 +1,60 @@
+<script>
+  function change_to_name()
+  {
+    document.getElementById("option").innerHTML="<b> Enter student name: </b>";
+  }
+  function change_to_roll()
+  {
+    document.getElementById("option").innerHTML="<b> Enter student roll number: </b>";
+  }
+</script>
+
+
+<form action="/summary_show">
+
+<a class='dropdown-button btn-large'  content="filter" name="filter" id="filter" data-activates='dropdown3' style="font-size:15; position:absolute; TOP:200px; LEFT:600px; ">Filter</a>
+<ul id='dropdown3' class='dropdown-content' name="filter" value="filter">
+      <li style="font-size:15" onclick="change_to_roll()" id="roll" value="roll" content="roll">By Roll Number</li>
+      <li style="font-size:15" onclick="change_to_name()" id="name" value="name" content="name" >By Name </li>
+
+</ul>
+
+<a class='dropdown-button btn-large'  data-activates='dropdown1' style="font-size:15; position:absolute; TOP:300px; LEFT:600px; ">Standards</a>
+<ul id='dropdown1' class='dropdown-content'>
+  <% stnd = Standard.all %>
+  <% stnd.each do |stnd| %>
+      <li style="font-size:15"><%= stnd.standard_name %></li>
+  <% end %>
+</ul>
+
+<a class='dropdown-button btn-large'  data-activates='dropdown2' style="font-size:15; position:absolute; TOP:300px; LEFT:780px; ">Sections</a>
+
+<!-- Dropdown Structure -->
+<ul id='dropdown2' class='dropdown-content'>
+  <% sect = Section.all %>
+  <% sect.each do |sect| %>
+      <li style="font-size:15"><%= sect.section_name %></li>
+  <% end %>
+</ul>
+
+  <div style="font-size:15; position:absolute; TOP:400px; LEFT:900px; ">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+
+  <div style="font-size:15; position:absolute; TOP:400px; LEFT:400px;" id="option">
+        <b > Enter student roll number: </b>
+    </div>
+
+  <div style="font-size:15; position:absolute; TOP:380px; LEFT:600px;">
+    <div class="row">
+      <div class="col s12">
+        <%= text_field(:student, :id)%>
+      </div>
+    </div>
+  </div>
+
+
+
+</form>
