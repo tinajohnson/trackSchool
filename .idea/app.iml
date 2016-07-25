@@ -232,6 +232,26 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="babel-source (vbundled(5.8.35), /home/tina/RubymineProjects/app/vendor/bundle/gems/babel-source-5.8.35) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-source-5.8.35/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-source-5.8.35/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="babel-transpiler (vbundled(0.7.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/babel-transpiler-0.7.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-transpiler-0.7.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-transpiler-0.7.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="bcrypt (vbundled(3.1.11), /home/tina/RubymineProjects/app/vendor/bundle/gems/bcrypt-3.1.11) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/bcrypt-3.1.11/ext" />
@@ -334,6 +354,16 @@
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/concurrent-ruby-1.0.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="connection_pool (vbundled(2.2.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/connection_pool-2.2.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/connection_pool-2.2.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/connection_pool-2.2.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -808,6 +838,16 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/rdoc-4.2.2/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/rdoc-4.2.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="react-rails (vbundled(1.8.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/react-rails-1.8.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/react-rails-1.8.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/react-rails-1.8.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
