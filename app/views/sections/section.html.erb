@@ -1,0 +1,11 @@
+<a class='dropdown-button btn-large'  data-activates='dropdown1' style="font-size:15; position:absolute; TOP:125px; LEFT:600px; ">Sections</a>
+
+<!-- Dropdown Structure -->
+<ul id='dropdown1' class='dropdown-content'>
+<% sect = Section.all %>
+  <% sect.each do |sect| %>
+      <li style="font-size:15"><a href='/mark_attendance'><%= sect.section_name %></a></li>
+  <% end %>
+</ul>
+
+
