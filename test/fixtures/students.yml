@@ -2,8 +2,12 @@
 
 one:
   student_name: MyString
-  class_mapping_id: 
+  standard_id: 
+  section_id: 
+  school_id: 
 
 two:
   student_name: MyString
-  class_mapping_id: 
+  standard_id: 
+  section_id: 
+  school_id: 

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Class Mappings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Standard</th>
+      <th>Section</th>
+      <th>School</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_mappings.each do |class_mapping| %>
+      <tr>
+        <td><%= class_mapping.standard.standard_name %></td>
+        <td><%= class_mapping.section.section_name%></td>
+        <td><%= class_mapping.school.school_name %></td>
+        <td><%= link_to 'Show', class_mapping %></td>
+        <td><%= link_to 'Edit', edit_class_mapping_path(class_mapping) %></td>
+        <td><%= link_to 'Destroy', class_mapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class mapping', new_class_mapping_path %>

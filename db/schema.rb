@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721123815) do
+ActiveRecord::Schema.define(version: 20160722032159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,12 +62,16 @@ ActiveRecord::Schema.define(version: 20160721123815) do
 
   create_table "students", force: :cascade do |t|
     t.string   "student_name"
-    t.integer  "class_mapping_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "standard_id"
+    t.integer  "section_id"
+    t.integer  "school_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "students", ["class_mapping_id"], name: "index_students_on_class_mapping_id", using: :btree
+  add_index "students", ["school_id"], name: "index_students_on_school_id", using: :btree
+  add_index "students", ["section_id"], name: "index_students_on_section_id", using: :btree
+  add_index "students", ["standard_id"], name: "index_students_on_standard_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -92,6 +96,8 @@ ActiveRecord::Schema.define(version: 20160721123815) do
   add_foreign_key "class_mappings", "schools"
   add_foreign_key "class_mappings", "sections"
   add_foreign_key "class_mappings", "standards"
-  add_foreign_key "students", "class_mappings"
+  add_foreign_key "students", "schools"
+  add_foreign_key "students", "sections"
+  add_foreign_key "students", "standards"
   add_foreign_key "users", "schools"
 end

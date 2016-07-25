@@ -18,7 +18,7 @@ class StudentsControllerTest < ActionController::TestCase
 
   test "should create student" do
     assert_difference('Student.count') do
-      post :create, student: { class_mapping_id: @student.class_mapping_id, student_name: @student.student_name }
+      post :create, student: { school_id: @student.school_id, section_id: @student.section_id, standard_id: @student.standard_id, student_name: @student.student_name }
     end
 
     assert_redirected_to student_path(assigns(:student))
@@ -35,7 +35,7 @@ class StudentsControllerTest < ActionController::TestCase
   end
 
   test "should update student" do
-    patch :update, id: @student, student: { class_mapping_id: @student.class_mapping_id, student_name: @student.student_name }
+    patch :update, id: @student, student: { school_id: @student.school_id, section_id: @student.section_id, standard_id: @student.standard_id, student_name: @student.student_name }
     assert_redirected_to student_path(assigns(:student))
   end
 
