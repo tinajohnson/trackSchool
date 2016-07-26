@@ -15,11 +15,14 @@
       </div>
     </div>
 
+   Mapping id = <%= @mapping_id%>
+
     <% t = 0 %>
     <% stud = Student.all %>
     <% stud.each do |stud| %>
         <% t+=4 %>
-        <b>Name: <%=stud.student_name%><br>Roll No: <%=stud.id%></b><br>
+      <%if stud.class_mapping_id == @mapping_id %>
+        <b>Name: <%=stud. name%><br>Roll No: <%=stud.id%></b><br>
       <input name= <%=stud.id%> type="radio" id=<%= t%> value="Present" />
       <label for=<%= t%>>Present</label>
       <input name=<%=stud.id%> type="radio" id=<%= t+1%> value="Half" />
@@ -28,9 +31,9 @@
       <label for=<%= t+2%>>Uninformed Absent</label>
       <input name=<%=stud.id%> type="radio" id=<%= t+3%> value="Informed"  />
       <label for=<%= t+3%>>Informed Absent</label> <br><br>
+        <% end %>
     <%end%>
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-      <i class="material-icons right">send</i>
     </button>
   </form>
 
