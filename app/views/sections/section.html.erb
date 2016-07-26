@@ -4,7 +4,7 @@
 <ul id='dropdown1' class='dropdown-content'>
 <% sect = Section.all %>
   <% sect.each do |sect| %>
-      <li style="font-size:15"><a href='/mark_attendance'><%= sect.section_name %></a></li>
+      <li style="font-size:15"><a href='/mark_attendance'><%= sect.name %></a></li>
   <% end %>
 </ul>
 

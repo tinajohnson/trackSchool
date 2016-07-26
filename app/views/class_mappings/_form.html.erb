@@ -13,15 +13,15 @@
 
     <div class="field">
       <%= f.label :standard_id %><br>
-      <%= f.select :standard_id,  options_for_select(Standard.all.map{|s|[s.standard_name, s.id]}) %>
+      <%= f.select :standard_id,  options_for_select(Standard.all.map{|s|[s.name, s.id]}) %>
     </div>
     <div class="field">
       <%= f.label :section_id %><br>
-      <%= f.select :section_id,  options_for_select(Section.all.map{|s|[s.section_name, s.id]}) %>
+      <%= f.select :section_id,  options_for_select(Section.all.map{|s|[s.name, s.id]}) %>
     </div>
     <div class="field">
       <%= f.label :school_id %><br>
-      <%= f.select :school_id,  options_for_select(School.all.map{|s|[s.school_name, s.id]}) %>
+      <%= f.select :school_id,  options_for_select(School.all.map{|s|[s.name, s.id]}) %>
     </div>
 
   <div class="actions">

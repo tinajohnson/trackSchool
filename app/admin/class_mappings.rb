@@ -11,9 +11,9 @@ ActiveAdmin.register ClassMapping do
 
   form do |f|
     f.inputs "Admin Details" do
-      f.input :standard_id, :as => :select, :collection => Standard.all.collect { |standard| [standard.standard_name, standard.id] }
-      f.input :section_id, :as => :select, :collection => Section.all.collect { |section| [section.section_name, section.id] }
-      f.input :school_id, :as => :select, :collection => School.all.collect { |school| [school.school_name, school.id] }
+      f.input :standard_id, :as => :select, :collection => Standard.all.collect { |standard| [standard.name, standard.id] }
+      f.input :section_id, :as => :select, :collection => Section.all.collect { |section| [section.name, section.id] }
+      f.input :school_id, :as => :select, :collection => School.all.collect { |school| [school.name, school.id] }
 
     end
     f.actions
