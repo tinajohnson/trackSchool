@@ -1,5 +1,5 @@
 ActiveAdmin.register Student do
-  permit_params :student_name, :class_mapping_id
+  permit_params :student_name, :class_mapping_id, :standard, :section, :school
   index do
     selectable_column
     column :id
@@ -16,12 +16,29 @@ ActiveAdmin.register Student do
     actions
   end
 
+  def student_params
+    params.require(:student).permit(:student_name, :class_mapping_id, :standard, :section, :school)
+  end
+  #
+  controller do
+    def create
+      create!
+        @student = Student.new
+        class_mapping_id = ClassMapping.where(:standard_id => params[:standard], :section_id => params[:section],
+                                              :school_id => params[:school]).pluck(:id).first
+        @student.class_mapping_id = class_mapping_id
+    end
+  end
+
+
+
 
   form do |f|
     f.inputs "Student Details" do
-      f.input "standard_id", :as => :select, :collection => Standard.all.collect { |standard| [standard.standard_name, standard.id] }
-      f.input "section_id", :as => :select, :collection => Section.all.collect { |section| [section.section_name, section.id] }
-      f.input "school_id", :as => :select, :collection => School.all.collect { |school| [school.school_name, school.id] }
+      f.input :student_name, :as => :string
+      f.input :school, :as => :select, :collection => School.all.collect { |school| [school.school_name, school.id] }
+      f.input :standard, :as => :select, :collection => Standard.all.collect { |standard| [standard.standard_name, standard.id] }
+      f.input :section, :as => :select, :collection => Section.all.collect { |section| [section.section_name, section.id] }
     end
     f.actions
   end
@@ -37,6 +54,10 @@ ActiveAdmin.register Student do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+
+
+
+
 
 
 end

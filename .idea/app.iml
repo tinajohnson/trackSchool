@@ -232,6 +232,26 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="babel-source (vbundled(5.8.35), /home/tina/RubymineProjects/app/vendor/bundle/gems/babel-source-5.8.35) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-source-5.8.35/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-source-5.8.35/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="babel-transpiler (vbundled(0.7.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/babel-transpiler-0.7.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-transpiler-0.7.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/babel-transpiler-0.7.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="bcrypt (vbundled(3.1.11), /home/tina/RubymineProjects/app/vendor/bundle/gems/bcrypt-3.1.11) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/bcrypt-3.1.11/ext" />
@@ -298,6 +318,18 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="coderay (vbundled(1.1.1), /home/tina/RubymineProjects/app/vendor/bundle/gems/coderay-1.1.1) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/coderay-1.1.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/coderay-1.1.1/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/coderay-1.1.1/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/coderay-1.1.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="coffee-rails (vbundled(4.1.1), /home/tina/RubymineProjects/app/vendor/bundle/gems/coffee-rails-4.1.1) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/coffee-rails-4.1.1/lib" />
@@ -334,6 +366,16 @@
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/concurrent-ruby-1.0.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="connection_pool (vbundled(2.2.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/connection_pool-2.2.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/connection_pool-2.2.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/connection_pool-2.2.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -578,6 +620,16 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="method_source (vbundled(0.8.2), /home/tina/RubymineProjects/app/vendor/bundle/gems/method_source-0.8.2) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/method_source-0.8.2/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/method_source-0.8.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="mime-types (vbundled(3.1), /home/tina/RubymineProjects/app/vendor/bundle/gems/mime-types-3.1) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/mime-types-3.1/lib" />
@@ -698,6 +750,28 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="pry (vbundled(0.10.4), /home/tina/RubymineProjects/app/vendor/bundle/gems/pry-0.10.4) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/pry-0.10.4/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/pry-0.10.4/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/pry-0.10.4/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/pry-0.10.4/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="pry-byebug (vbundled(3.4.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/pry-byebug-3.4.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/pry-byebug-3.4.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/pry-byebug-3.4.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rack (vbundled(1.6.4), /home/tina/RubymineProjects/app/vendor/bundle/gems/rack-1.6.4) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/rack-1.6.4/bin" />
@@ -812,6 +886,16 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="react-rails (vbundled(1.8.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/react-rails-1.8.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/react-rails-1.8.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/react-rails-1.8.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="responders (vbundled(2.2.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/responders-2.2.0) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/responders-2.2.0/lib" />
@@ -858,6 +942,16 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/sdoc-0.4.1/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/gems/sdoc-0.4.1/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slop (vbundled(3.6.0), /home/tina/RubymineProjects/app/vendor/bundle/gems/slop-3.6.0) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/slop-3.6.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/gems/slop-3.6.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
