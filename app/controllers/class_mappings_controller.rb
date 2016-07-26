@@ -6,6 +6,25 @@ class ClassMappingsController < ApplicationController
   def index
     @class_mappings = ClassMapping.all
   end
+  
+   def find_mapping_id
+         std = params["standard"]
+         sec = params["section"]
+
+         @mapping_id = 0
+
+    std_id = Standard.find_by_standard_name(std)
+    sec_id = Section.find_by_section_name(sec)
+
+
+         c_map = ClassMapping.all
+         c_map.each do |c_map|
+             if (c_map.standard_id == std_id.id && c_map.section_id == sec_id.id)
+                @mapping_id = c_map.id
+             end
+         end
+
+  end
 
   # GET /class_mappings/1
   # GET /class_mappings/1.json
