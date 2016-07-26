@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/show_selected_id' => 'students#show_selected_id', as: 'show_selected_id'
   get '/std_sec' => 'standards#std_sec', as: 'std_sec'
   get '/sections_choose' => 'sections#section', as:'sections_choose'
+  post '/students/', to: 'students#submit_form'
   devise_for :users
   ActiveAdmin.routes(self)
 

@@ -4,7 +4,8 @@ class ClassMappingsController < ApplicationController
   # GET /class_mappings
   # GET /class_mappings.json
   def index
-    @class_mappings = ClassMapping.all
+    s_id = Allotment.where(user_id: current_user.id).pluck(:school_id)
+    @class_mappings = ClassMapping.where(school_id: s_id)
   end
 
   # GET /class_mappings/1
@@ -25,6 +26,7 @@ class ClassMappingsController < ApplicationController
   # POST /class_mappings.json
   def create
     @class_mapping = ClassMapping.new(class_mapping_params)
+    @class_mapping.school_id = params[:school_id]
 
     respond_to do |format|
       if @class_mapping.save

@@ -17,9 +17,9 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= student.student_name %></td>
-        <td><%= student.standard.standard_name %></td>
-        <td><%= student.section.section_name %></td>
-        <td><%= student.school.school_name %></td>
+        <td><%= student.class_mapping.standard.standard_name %></td>
+        <td><%= student.class_mapping.section.section_name %></td>
+        <td><%= student.class_mapping.school.school_name %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
