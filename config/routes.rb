@@ -15,6 +15,14 @@ Rails.application.routes.draw do
   get '/std_sec' => 'standards#std_sec', as: 'std_sec'
   get '/sections_choose' => 'sections#section', as:'sections_choose'
   post '/students/', to: 'students#submit_form'
+  get '/home' => 'users#teacher'
+  get '/manage_students' => 'students#index' , as: 'manage_students'
+  get '/pick_class' => 'class_mappings#find_mapping_id'
+  get 'manage_teacher' =>'users#teacher_crud', as: 'manage_teachers'
+  get '/teacher_delete' => 'users#teacher_delete', as: 'teacher_delete'
+  get '/teacher_allot_classes' => 'users#teacher_allot_classes' , as: 'teacher_allot_classes'
+  get '/class_alloted' => 'users#class_alloted
+  
   devise_for :users
   ActiveAdmin.routes(self)
 
