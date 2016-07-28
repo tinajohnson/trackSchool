@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725155920) do
+
+ActiveRecord::Schema.define(version: 20160726112315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,28 +61,29 @@ ActiveRecord::Schema.define(version: 20160725155920) do
   end
 
   create_table "schools", force: :cascade do |t|
-    t.string   "school_name"
-    t.string   "school_location"
-    t.string   "school_contact"
-    t.string   "school_admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "name"
+    t.string   "location"
+    t.string   "contact"
+    t.string   "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string   "section_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "standards", force: :cascade do |t|
-    t.string   "standard_name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
-    t.string   "student_name"
+
+    t.string   "name"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "class_mapping_id"

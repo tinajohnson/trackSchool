@@ -23,6 +23,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :class_mapping %><br>
+    <%= f.select :class_mapping,  options_for_select(ClassMapping.all.map{|c|[c.standard.name, c.id]}) %>
+    <%= f.select :class_mapping,  options_for_select(ClassMapping.all.map{|c|[c.section.name, c.id]}) %>
+  </div>
   <%= select_tag 'standard', options_for_select(standards.map{ |st| [st.name, st.id]}) %>
   <%= select_tag 'section', options_for_select(sections.map{ |sec| [sec.name, sec.id]}) %>
   <%= hidden_field_tag 'school_id', s_id %>

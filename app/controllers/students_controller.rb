@@ -7,12 +7,6 @@ class StudentsController < InheritedResources::Base
     s_id = Allotment.where(user_id: current_user.id).pluck(:school_id)
     class_ids = ClassMapping.where(school_id: s_id).pluck(:id)
     @students = Student.includes(class_mapping:[:standard, :section]).where( :class_mapping_id => class_ids)
-    #class ids of selected students
-    # @class_ids_students= []
-    # for student in @students do
-    #   @class_ids_students<<student.class_mapping_id
-    # end
-    # @class_mappings = ClassMapping.where( :id => @class_ids_students )
     render component: 'Students', props: { students: @students}
   end
 
@@ -30,27 +24,6 @@ class StudentsController < InheritedResources::Base
   def edit
   end
 
-  # POST /students
-  # POST /students.json
-  # def create
-  #   @student = Student.new(student_params)
-  #   class_mapping_id = ClassMapping.where(:standard_id => params[:standard], :section_id => params[:section],
-  #                                         :school_id => params[:school_id]).pluck(:id).first
-  #   @student.class_mapping_id = class_mapping_id
-  #
-  #   respond_to do |format|
-  #     if @student.save
-  #       format.html { redirect_to @student, notice: 'Student was successfully created.' }
-  #       format.json { render :show, status: :created, location: @student }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @student.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # PATCH/PUT /students/1
-  # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
       if @student.update(student_params)

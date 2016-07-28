@@ -23,7 +23,7 @@
 <ul id='dropdown1' class='dropdown-content'>
   <% stnd = Standard.all %>
   <% stnd.each do |stnd| %>
-      <li style="font-size:15"><%= stnd.standard_name %></li>
+      <li style="font-size:15"><%= stnd.name %></li>
   <% end %>
 </ul>
 
@@ -33,7 +33,7 @@
 <ul id='dropdown2' class='dropdown-content'>
   <% sect = Section.all %>
   <% sect.each do |sect| %>
-      <li style="font-size:15"><%= sect.section_name %></li>
+      <li style="font-size:15"><%= sect.name %></li>
   <% end %>
 </ul>
 

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :schools
   root to: 'admin/dashboard#index'
   get '/sadmin/' => "sadmin#index", as: :sadmin
-  get '/teacher' => 'teachers#index', as: :teacher
+  get '/teacher' => 'users#teacher', as: :teacher
   get '/mark_attendance'  => 'students#list_students',  as: 'mark_attendance'
   get '/summary' => 'attendances#view_summary', as:'summary'
   get '/summary_show' =>"attendances#summary_show"
