@@ -20,11 +20,11 @@
   %>
 
   <div class="field">
-    <%= f.label :student_name %><br>
-    <%= f.text_field :student_name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
-  <%= select_tag 'standard', options_for_select(standards.map{ |st| [st.standard_name, st.id]}) %>
-  <%= select_tag 'section', options_for_select(sections.map{ |sec| [sec.section_name, sec.id]}) %>
+  <%= select_tag 'standard', options_for_select(standards.map{ |st| [st.name, st.id]}) %>
+  <%= select_tag 'section', options_for_select(sections.map{ |sec| [sec.name, sec.id]}) %>
   <%= hidden_field_tag 'school_id', s_id %>
   <div class="actions">
     <%= f.submit %>

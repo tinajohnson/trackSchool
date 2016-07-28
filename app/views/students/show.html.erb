@@ -2,22 +2,22 @@
 
 <p>
   <strong>Student name:</strong>
-  <%= @student.student_name %>
+  <%= @student.name %>
 </p>
 
 <p>
   <strong>Standard:</strong>
-  <%= @student.class_mapping.standard.standard_name %>
+  <%= @student.class_mapping.standard.name %>
 </p>
 
 <p>
   <strong>Section:</strong>
-  <%= @student.class_mapping.section.section_name %>
+  <%= @student.class_mapping.section.name %>
 </p>
 
 <p>
   <strong>School:</strong>
-  <%= @student.class_mapping.school.school_name %>
+  <%= @student.class_mapping.school.name %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |

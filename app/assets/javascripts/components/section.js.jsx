@@ -1,7 +1,7 @@
-var Standard = React.createClass({
+var Section = React.createClass({
     getInitialState() {
         return {
-            standard: this.props.standard,
+            section: this.props.section,
             editMode: false
         }
     },
@@ -13,23 +13,23 @@ var Standard = React.createClass({
                     <td>
                         <input
                             type="text"
-                            value={this.state.standard.name}
+                            value={this.state.section.name}
                             onChange={this.handleNameChange} />
                     </td>
                     <td>
-                        <button onClick={this.handleStandardUpdate}>Save</button>
+                        <button onClick={this.handleSectionUpdate}>Save</button>
                     </td>
                 </tr>
             );
         } else {
             markup = (
                 <tr>
-                    <td>{this.state.standard.name}</td>
+                    <td>{this.state.section.name}</td>
                     <td>
                         <button onClick={this.setEditMode}>Edit</button>
                     </td>
                     <td>
-                        <button onClick={this.removeStandard}>Destroy</button>
+                        <button onClick={this.removeSection}>Destroy</button>
                     </td>
                 </tr>
             );
@@ -42,35 +42,35 @@ var Standard = React.createClass({
     },
 
     handleNameChange(e) {
-        var newStandard = this.state.standard;
-        newStandard.name = e.target.value;
-        this.setState({standard: newStandard});
+        var newSection = this.state.section;
+        newSection.name = e.target.value;
+        this.setState({section: newSection});
     },
 
-    handleStandardUpdate() {
+    handleSectionUpdate() {
         var that = this;
         $.ajax({
             method: 'PUT',
             data: {
-                standard: that.state.standard,
+                section: that.state.section,
             },
-            url: '/standards/' + that.state.standard.id,
+            url: '/sections/' + that.state.section.id,
             success: function(res) {
                 that.setState({
-                    standard: res,
+                    section: res,
                     editMode: false
                 });
             }
         });
     },
 
-    removeStandard() {
+    removeSection() {
         var that = this;
         $.ajax({
             method: 'DELETE',
-            url: '/standards/'+that.state.standard.id,
+            url: '/sections/'+that.state.section.id,
             success: function(res) {
-                that.props.onRemoveStandard(that.state.standard);
+                that.props.onRemoveSection(that.state.section);
             }
         })
     },

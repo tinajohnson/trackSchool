@@ -1,25 +1,27 @@
 ActiveAdmin.register Student do
-  permit_params :student_name, :class_mapping_id, :standard, :section, :school
+  permit_params :name, :class_mapping_id, :standard, :section, :school
   index do
     selectable_column
     column :id
-    column :student_name
+    column :name
     column "Standard" do |i|
-      i.class_mapping.standard.standard_name
+      i.class_mapping.standard.name
     end
     column "Section" do |i|
-      i.class_mapping.section.section_name
+      i.class_mapping.section.name
     end
     column "School" do |i|
-      i.class_mapping.school.school_name
+      i.class_mapping.school.name
     end
     actions
   end
 
   def student_params
-    params.require(:student).permit(:student_name, :class_mapping_id, :standard, :section, :school)
+    params.require(:student).permit(:name, :class_mapping_id, :standard, :section, :school)
   end
-  #
+
+
+
   controller do
     def create
       create!
@@ -32,13 +34,13 @@ ActiveAdmin.register Student do
 
 
 
-
   form do |f|
     f.inputs "Student Details" do
-      f.input :student_name, :as => :string
-      f.input :school, :as => :select, :collection => School.all.collect { |school| [school.school_name, school.id] }
-      f.input :standard, :as => :select, :collection => Standard.all.collect { |standard| [standard.standard_name, standard.id] }
-      f.input :section, :as => :select, :collection => Section.all.collect { |section| [section.section_name, section.id] }
+      f.input :name, :as => :string
+      f.input :school, :as => :select, :collection => School.all.collect { |school| [school.name, school.id] }
+      # f.input :standard, :as => :select, :input_html => {'data-option-dependent' => true, 'data-option-url' => '/admin/standards', 'data-option-observed' => 'student_school'}, :collection => @standards.collect {|standard| {:id => standard.id, :name => standard.name} }
+      # f.input :standard, :as => :select, :collection => Standard.all.collect { |standard| [standard.name, standard.id] }
+      # f.input :section, :as => :select, :collection => Section.all.collect { |section| [section.name, section.id] }
     end
     f.actions
   end

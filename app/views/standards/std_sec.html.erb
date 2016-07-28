@@ -5,7 +5,7 @@
 <ul id='dropdown1' class='dropdown-content'>
   <% stnd = Standard.all %>
   <% stnd.each do |stnd| %>
-      <li style="font-size:15"><a href='/sections_choose'><%= stnd.standard_name %></a></li>
+      <li style="font-size:15"><a href='/sections_choose'><%= stnd.name %></a></li>
   <% end %>
 
 </ul>

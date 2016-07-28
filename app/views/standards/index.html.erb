@@ -13,7 +13,7 @@
   <tbody>
     <% @standards.each do |standard| %>
       <tr>
-        <td><%= standard.standard_name %></td>
+        <td><%= standard.name %></td>
         <td><%= link_to 'Edit', edit_standard_path(standard) %></td>
         <td><%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

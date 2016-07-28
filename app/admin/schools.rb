@@ -1,6 +1,6 @@
 ActiveAdmin.register School do
 
-  permit_params :school_name, :school_location, :school_contact, :school_admin
+  permit_params :name, :location, :contact, :admin
   # action_item :approve, only: :show do
   #   link_to 'View on site'
   # end
