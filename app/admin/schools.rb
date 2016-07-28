@@ -1,11 +1,9 @@
-ActiveAdmin.register Student do
-  permit_params :standard_id, :section_id, :school_id, :student_name
-  index do
-    ClassMapping.column_names.each do |c|
-      column c.to_sym
-    end
-    actions
-  end
+ActiveAdmin.register School do
+
+  permit_params :name, :location, :contact, :admin
+  # action_item :approve, only: :show do
+  #   link_to 'View on site'
+  # end
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

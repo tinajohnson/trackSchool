@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722032159) do
+ActiveRecord::Schema.define(version: 20160726112315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,26 @@ ActiveRecord::Schema.define(version: 20160722032159) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
+  create_table "allotments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "school_id"
+    t.integer "class_mapping_id"
+    t.string  "role"
+  end
+
+  add_index "allotments", ["class_mapping_id"], name: "index_allotments_on_class_mapping_id", using: :btree
+  add_index "allotments", ["school_id"], name: "index_allotments_on_school_id", using: :btree
+  add_index "allotments", ["user_id"], name: "index_allotments_on_user_id", using: :btree
+
+  create_table "attendances", force: :cascade do |t|
+    t.string   "student_id"
+    t.string   "integer"
+    t.string   "attendance"
+    t.date     "Date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "class_mappings", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -40,38 +60,32 @@ ActiveRecord::Schema.define(version: 20160722032159) do
   end
 
   create_table "schools", force: :cascade do |t|
-    t.string   "school_name"
-    t.string   "school_location"
-    t.string   "school_contact"
-    t.string   "school_admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "name"
+    t.string   "location"
+    t.string   "contact"
+    t.string   "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string   "section_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "standards", force: :cascade do |t|
-    t.string   "standard_name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
-    t.string   "student_name"
-    t.integer  "standard_id"
-    t.integer  "section_id"
-    t.integer  "school_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "class_mapping_id"
   end
-
-  add_index "students", ["school_id"], name: "index_students_on_school_id", using: :btree
-  add_index "students", ["section_id"], name: "index_students_on_section_id", using: :btree
-  add_index "students", ["standard_id"], name: "index_students_on_standard_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -93,11 +107,12 @@ ActiveRecord::Schema.define(version: 20160722032159) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "allotments", "class_mappings"
+  add_foreign_key "allotments", "schools"
+  add_foreign_key "allotments", "users"
   add_foreign_key "class_mappings", "schools"
   add_foreign_key "class_mappings", "sections"
   add_foreign_key "class_mappings", "standards"
-  add_foreign_key "students", "schools"
-  add_foreign_key "students", "sections"
-  add_foreign_key "students", "standards"
+  add_foreign_key "students", "class_mappings"
   add_foreign_key "users", "schools"
 end

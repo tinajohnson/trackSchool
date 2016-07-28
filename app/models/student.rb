@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  belongs_to :standard
-  belongs_to :section
-  belongs_to :school
+  validates_presence_of :name
+  belongs_to :class_mapping
+  has_many :attendances
 end

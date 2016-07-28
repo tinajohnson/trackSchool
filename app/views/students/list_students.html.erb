@@ -19,7 +19,7 @@
     <% stud = Student.all %>
     <% stud.each do |stud| %>
         <% t+=4 %>
-        <b>Name: <%=stud.student_name%><br>Roll No: <%=stud.id%></b><br>
+        <b>Name: <%=stud.name%><br>Roll No: <%=stud.id%></b><br>
       <input name= <%=stud.id%> type="radio" id=<%= t%> value="Present" />
       <label for=<%= t%>>Present</label>
       <input name=<%=stud.id%> type="radio" id=<%= t+1%> value="Half" />
