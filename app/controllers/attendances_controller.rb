@@ -1,6 +1,7 @@
 class AttendancesController < ApplicationController
   before_action :set_attendance, only: [:show, :edit, :update, :destroy]
-
+   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+  
   # GET /attendances
   # GET /attendances.json
   def index
@@ -9,12 +10,27 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/1
   # GET /attendances/1.json
-  def show
+  
+  def render_404
+    redirect_to summary_path ,  flash: {alert: "NO SUCH STUDENT EXISTS" }
   end
 
   def summary_show
-      student_id = params["student"]["id"]
-      @id = student_id.to_i;
+     @id
+     @name
+     if(params["Filter"]=="By Name")
+       temp = Student.find_by_name(params["student"]["id"])
+       @name = params["student"]["id"]
+       @id = temp.id
+     end
+
+     if(params["Filter"]=="By Roll Number")
+
+       student_id = params["student"]
+       @id = student_id
+       t = Student.find(@id)
+       @name = t.name
+
       t = Attendance.uniq.pluck(:Date)
       @Working_days = t.count
       @Present = 0
@@ -22,12 +38,12 @@ class AttendancesController < ApplicationController
       @informed = 0
       attend = Attendance.all
       attend.each do |attend|
-          if attend.student_id == @id
+          if attend.student_id == @id.to_s
               if(attend.attendance == "Present")
                   @Present = @Present+1;
               end
               if(attend.attendance == "Half")
-                @Present = @Present+0.5;
+                @Present = @Present+ 0.5;
               end
               if(attend.attendance == "Uninformed")
                 @Uninformed = @Uninformed+1;
@@ -39,12 +55,13 @@ class AttendancesController < ApplicationController
           @att_per = @Present/@Working_days
           @att_per = @att_per * 100
       end
-
-  end
+     end
+   end
 
   def view_summary
 
   end
+  
 
   # GET /attendances/new
   def new
