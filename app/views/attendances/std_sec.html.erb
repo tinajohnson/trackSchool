@@ -1,0 +1,36 @@
+<form action="/mark_attendance">
+
+  <div style="font-size:15; position:absolute; TOP:300px; LEFT:600px;">
+    <div class="row">
+      <div class="col s12">
+        Standard:
+        <select  class="browser-default waves-effect waves-light btn" name="standard" id="standard_id">
+          <% stnd = Standard.all %>
+          <% stnd.each do |stnd| %>
+              <option value=<%=stnd.standard_name%> ><%=stnd.standard_name%> </option>
+          <%end%>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-size:15; position:absolute; TOP:400px; LEFT:600px;">
+  <div class="row">
+    <div class="col s12">
+      Section:
+      <select class="browser-default waves-effect waves-light btn" name="section" id="section_id">
+        <% sec = Section.all %>
+        <% sec.each do |sec| %>
+            <option value=<%=sec.section_name%> ><%=sec.section_name%> </option>
+        <%end%>
+      </select>
+    </div>
+  </div>
+</div>
+
+  <div style="font-size:15; position:absolute; TOP:500px; LEFT:900px; ">
+    <input type="submit">
+    <!--<#%= react_component('Submit') %>-->
+  </div>
+
+</form>
