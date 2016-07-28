@@ -1,4 +1,4 @@
-<%= form_for @student do |f| %>
+<%= form_for(@student) do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -11,26 +11,14 @@
     </div>
   <% end %>
 
-  <%
-    s_id = Allotment.where(user_id: current_user.id).pluck(:school_id)
-    standard_ids = ClassMapping.where(school_id: s_id).pluck(:standard_id)
-    standards = Standard.where(:id => standard_ids)
-    section_ids = ClassMapping.where(school_id: s_id).pluck(:section_id)
-    sections = Section.where(:id => section_ids)
-  %>
-
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :class_mapping %><br>
-    <%= f.select :class_mapping,  options_for_select(ClassMapping.all.map{|c|[c.standard.name, c.id]}) %>
-    <%= f.select :class_mapping,  options_for_select(ClassMapping.all.map{|c|[c.section.name, c.id]}) %>
+    <%= f.label :class_mapping_id %><br>
+    <%= f.number_field :class_mapping_id %>
   </div>
-  <%= select_tag 'standard', options_for_select(standards.map{ |st| [st.name, st.id]}) %>
-  <%= select_tag 'section', options_for_select(sections.map{ |sec| [sec.name, sec.id]}) %>
-  <%= hidden_field_tag 'school_id', s_id %>
   <div class="actions">
     <%= f.submit %>
   </div>

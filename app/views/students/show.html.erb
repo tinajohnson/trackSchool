@@ -1,23 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Student name:</strong>
+  <strong>Name:</strong>
   <%= @student.name %>
 </p>
 
 <p>
-  <strong>Standard:</strong>
-  <%= @student.class_mapping.standard.name %>
-</p>
-
-<p>
-  <strong>Section:</strong>
-  <%= @student.class_mapping.section.name %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @student.class_mapping.school.name %>
+  <strong>Class mapping:</strong>
+  <%= @student.class_mapping_id %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
