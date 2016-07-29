@@ -31,6 +31,8 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'react-rails'
 
+gem 'pry', :group => :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

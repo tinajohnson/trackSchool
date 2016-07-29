@@ -9,7 +9,7 @@ var Standards = React.createClass({
     },
 
     render: function() {
-        var that = this
+        var that = this;
         standards = this.state.standards.map( function(standard) {
             return (
                 <Standard standard={standard} key={standard.id} onRemoveStandard = {that.handleStandardRemove}  />

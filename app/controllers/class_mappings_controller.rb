@@ -5,7 +5,11 @@ class ClassMappingsController < ApplicationController
   # GET /class_mappings.json
   def index
     s_id = Allotment.where(user_id: current_user.id).pluck(:school_id)
-    @class_mappings = ClassMapping.where(school_id: s_id)
+    @class_mappings = ClassMapping.includes(:standard, :section).where(school_id: s_id)
+    class_mappings = @class_mappings.map  do |c|
+      { id:c.id, standard: c.standard.name, section: c.section.name, school: s_id}
+    end
+    render component: 'ClassMappings', props: { class_mappings: class_mappings}
   end
 
   # GET /class_mappings/1
@@ -25,17 +29,14 @@ class ClassMappingsController < ApplicationController
   # POST /class_mappings
   # POST /class_mappings.json
   def create
-    @class_mapping = ClassMapping.new(class_mapping_params)
-    @class_mapping.school_id = params[:school_id]
+    s_id = Allotment.where(user_id: current_user.id).pluck(:school_id).first
+    standard_id = Standard.where(name: params[:class_mapping][:standard]).pluck(:id).first
 
-    respond_to do |format|
-      if @class_mapping.save
-        format.html { redirect_to @class_mapping, notice: 'Class mapping was successfully created.' }
-        format.json { render :show, status: :created, location: @class_mapping }
-      else
-        format.html { render :new }
-        format.json { render json: @class_mapping.errors, status: :unprocessable_entity }
-      end
+    section_id = Section.where(name: params[:class_mapping][:section]).pluck(:id).first
+    @classes = ClassMapping.new({:section_id => section_id, :standard_id => standard_id, :school_id => s_id})
+    @saved_class = { id:@classes.id, standard: params[:class_mapping][:standard], section: params[:class_mapping][:section], school: s_id}
+    if @classes.save
+      render :json => @saved_class
     end
   end
 
