@@ -6,10 +6,12 @@ class ClassMappingsController < ApplicationController
   def index
     s_id = Allotment.where(user_id: current_user.id).pluck(:school_id)
     @class_mappings = ClassMapping.includes(:standard, :section).where(school_id: s_id)
+    standards = Standard.all
+    sections = Section.all
     class_mappings = @class_mappings.map  do |c|
       { id:c.id, standard: c.standard.name, section: c.section.name, school: s_id}
     end
-    render component: 'ClassMappings', props: { class_mappings: class_mappings}
+    render component: 'ClassMappings', props: { class_mappings: class_mappings, standards: standards, sections: sections}
   end
 
   # GET /class_mappings/1
@@ -31,7 +33,6 @@ class ClassMappingsController < ApplicationController
   def create
     s_id = Allotment.where(user_id: current_user.id).pluck(:school_id).first
     standard_id = Standard.where(name: params[:class_mapping][:standard]).pluck(:id).first
-
     section_id = Section.where(name: params[:class_mapping][:section]).pluck(:id).first
     @classes = ClassMapping.new({:section_id => section_id, :standard_id => standard_id, :school_id => s_id})
     @saved_class = { id:@classes.id, standard: params[:class_mapping][:standard], section: params[:class_mapping][:section], school: s_id}
