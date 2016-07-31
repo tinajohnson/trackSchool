@@ -11,7 +11,11 @@ class StudentsController < InheritedResources::Base
         { id:student.id, name: student.name, standard: student.class_mapping.standard.name, section: student.class_mapping.section.name,
         school: s_id}
     end
-    render component: 'Students', props: { students: students}
+
+    options = @all_students.map do |student|
+      {label:student.class_mapping.standard.name+'-'+student.class_mapping.section.name, value: student.class_mapping_id}
+    end
+    render component: 'Students', props: { students: students, options: options}
   end
 
   # GET /students/1
@@ -25,13 +29,10 @@ class StudentsController < InheritedResources::Base
   end
 
   def create
-    s_id = Allotment.where(user_id: current_user.id).pluck(:school_id)
-    standard_id = Standard.where(name: params[:student][:standard]).pluck(:id)
-    section_id = Section.where(name: params[:student][:section]).pluck(:id)
-    class_id = ClassMapping.where(school_id: s_id, standard_id: standard_id, section_id: section_id ).pluck(:id).first
+    class_id = params[:student][:class_mapping_id ].to_i
     @student = Student.new({:name => params[:student][:name], :class_mapping_id => class_id})
-    @saved_student = {id:@student.id, name: params[:student][:name], standard: params[:student][:standard], section: params[:student][:section],
-                      school: s_id, class_mapping_id: class_id}
+    @saved_student = {id:@student.id, name: params[:student][:name], standard: params[:student][:standard],
+                      section: params[:student][:section], class_mapping_id: class_id}
     if @student.save
       render :json => @saved_student
     end
