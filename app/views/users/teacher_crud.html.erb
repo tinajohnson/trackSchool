@@ -25,7 +25,7 @@
             <% sec_std = ClassMapping.find(allot.class_mappings_id)%>
             <% std = Standard.find(sec_std.standard_id) %>
             <% sec = Section.find(sec_std.standard_id) %>
-            <td><%= User.find(allot.user_id).email %></td>
+            <td><%= User.find(allot.user_id).name %></td>
             <td><%= std.standard_name%> <%= sec.section_name%></td>
             <td><%= link_to "Delete" , teacher_delete_path(id: allot.id)%></td>
             <!--<td><#%= link_to "Allot" ,  teacher_allot_classes_path(id: allot.user_id) %></td>-->
