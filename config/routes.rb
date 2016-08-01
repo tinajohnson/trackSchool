@@ -14,6 +14,20 @@ Rails.application.routes.draw do
   get '/show_selected_id' => 'students#show_selected_id', as: 'show_selected_id'
   get '/std_sec' => 'standards#std_sec', as: 'std_sec'
   get '/sections_choose' => 'sections#section', as:'sections_choose'
+  get '/std_sec' => 'attendances#std_sec', as: 'std_sec'
+  get '/sections_choose' => 'sections#section', as:'sections_choose'
+  get '/home' => 'users#teacher' , as: 'teacher_path'
+  get '/manage_students' => 'students#index' , as: 'manage_students'
+  get '/pick_class' => 'class_mappings#find_mapping_id'
+  get '/manage_teacher' =>'users#display', as: 'manage_teachers'
+  get '/teacher_delete' => 'users#teacher_delete', as: 'teacher_delete'
+  get '/teacher_allot_classes' => 'users#teacher_allot_classes' , as: 'teacher_allot_classes'
+  get '/class_alloted' => 'users#class_alloted'
+  get '/allot_class'  => 'users#batch_action' , as: 'allot_class'
+  get '/save' => 'users#save' , as: 'save'
+  get '/add_as_teacher' => 'users#add_as_teacher' , as: 'add_as_teacher'
+  get '/admin_user'  => 'admin/users#index' , as: 'admin_user'
+  
   post '/students/', to: 'students#submit_form'
   devise_for :users
   ActiveAdmin.routes(self)

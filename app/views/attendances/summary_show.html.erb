@@ -1,13 +1,18 @@
 
 
  <h4>
-     Attendance for student with id = <%= @id %></a>
+     Attendance summary of <%=@name%>, Roll No. <%= @id %></a>
    </h4>
 
  <div class="collection">
-   <b><a href="#!" class="collection-item">Working days<span class="badge"> <%= @Working_days %></span></a>
-   <a href="#!" class="collection-item">Present<span class="badge"><%= @Present %></span></a>
-   <a href="#!" class="collection-item">Uninformed Absent<span class="badge"><%= @Uninformed %></span></a>
-   <a href="#!" class="collection-item">Informed Absent<span class="badge"><%= @informed %></span></a>
-   <a href="#!" class="collection-item">Attendance Percentage<span class="badge"><%= @att_per %>%</span></a></b>
+   <%= react_component ('Collect'), name: "Working Days" , days:@working_days %>
+   <%= react_component ('Collect'), name: "Present" , days:@present %>
+   <%= react_component ('Collect'), name: "Uninformed Absent" , days:@uninformed %>
+   <%= react_component ('Collect'), name: "Informed Absent" , days:@informed %>
+   <%= react_component ('Collect'), name: "Attendance Percentage" , days:@att_per %>
+   <!--<a href="#!" class="collection-item">Present<span class="badge"><%= @present %></span></a>-->
+   <!--<a href="#!" class="collection-item">Uninformed Absent<span class="badge"><%= @uninformed %></span></a>-->
+   <!--<a href="#!" class="collection-item">Informed Absent<span class="badge"><%= @informed %></span></a>-->
+   <!--<a href="#!" class="collection-item">Attendance Percentage<span class="badge"><%= @att_per %>%</span></a></b>-->
  </div>
+
