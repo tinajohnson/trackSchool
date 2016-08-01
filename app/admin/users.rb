@@ -23,6 +23,12 @@ ActiveAdmin.register User  do
     action_item :view, only: :show do
       link_to 'View on site', manage_teachers_path
     end
+    
+     batch_action :Add_as_teacher, form: {
+    } do |ids|
+      # inputs is a hash of all the form fields you requested
+      redirect_to add_as_teacher_path params: {id: ids}
+    end
 
 
     form do |f|
