@@ -20,8 +20,8 @@ ActiveAdmin.register User  do
          actions
       end
 
-    action_item :view, only: :show do
-      link_to 'View on site', manage_teachers_path
+    action_item :Allot do
+      link_to "Allot classes" ,manage_teachers_path
     end
     
      batch_action :Add_as_teacher, form: {
