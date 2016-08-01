@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get '/class_alloted' => 'users#class_alloted'
   get '/allot_class'  => 'users#batch_action' , as: 'allot_class'
   get '/save' => 'users#save' , as: 'save'
+  get '/add_as_teacher' => 'users#add_as_teacher' , as: 'add_as_teacher'
+  get '/admin_user'  => 'admin/users#index' , as: 'admin_user'
   
   post '/students/', to: 'students#submit_form'
   devise_for :users
