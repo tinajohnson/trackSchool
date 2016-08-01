@@ -57,6 +57,17 @@ class UsersController < InheritedResources::Base
      redirect_to manage_teachers_path ,  flash: {alert: "Class alloted to teacher" }
 
      end
+     
+     def add_as_teacher
+      id = params["id"]
+
+      id.each do |i|
+          t = User.find(i)
+          t.role = "teacher"
+          t.save
+      end
+         redirect_to admin_user_path notice: {alert: "User added as teacher" }
+    end
 
     def render_404
       render 'users/error'
