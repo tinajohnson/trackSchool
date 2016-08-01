@@ -1,0 +1,35 @@
+
+<%= semantic_form_for @student do |f| %>
+
+  <%= f.inputs 'Details' do %>
+    <%= f.input :name %>
+    <% all_schools = School.all %>
+    <%= f.input :school, label: 'Schools', as: :select, collection: all_schools.map{ |school| [ school.name, school.id ]}, input_html: { id: 'school-select' }, selected: @student.school, prompt: 'Select a school' %>
+    <%= f.input :class, label: 'Class', as: :select, input_html: { id: 'school-classes-select'}, prompt: 'Select class', collection: []%>
+
+  <% end %>
+
+    <% # state drop down must change according to the country selected in the country drop down %>
+    <script type='text/javascript'>
+
+      $(document).ready(function(){
+        var $school =  $('#school-select');
+
+        $school.change(function(){
+          $.ajax({
+            url: '/students/' + $school + '/get_classes',
+            type: "get",
+            success: function( response ){
+              if( response.status ){
+                for( var i = 0; i < response.classes.length; i++ ){
+                  console.log( '<option value = '+ organization_programs[i].id +'>' + classes[i].id + '</option>' );
+                }
+              }
+
+            }
+          })
+        });
+      });
+    </script>
+
+<% end %>

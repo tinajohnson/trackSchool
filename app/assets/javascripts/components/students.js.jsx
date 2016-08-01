@@ -43,6 +43,10 @@ var Students = React.createClass({
         this.setState({student: newStudent});
     },
 
+    handleClick(props) {
+        console.log('You clicked: ' + this.props.options);
+    },
+
     addNewStudent() {
         var that = this;
         $.ajax({
@@ -69,9 +73,10 @@ var Students = React.createClass({
 
 
     render: function() {
+        options=this.state.options
         students = this.state.students.map( function(student) {
             return (
-                <Student student={student} key={student.id} onRemoveStudent="handleStudentRemove"/>
+                <Student student={student} key={student.id} options={options} onRemoveStudent="handleStudentRemove"/>
             );
         });
         return (

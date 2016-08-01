@@ -43,15 +43,14 @@ class StudentsController < InheritedResources::Base
   end
 
   def update
-    respond_to do |format|
+      @student = Student.find(params[:id])
+      @student.class_mapping_id = params[:student][:class_mapping_id].to_i
+      @student.name = params[:student][:name]
+      @saved_student = {id:@student.id, name: params[:student][:name], standard: params[:student][:standard],
+                        section: params[:student][:section], class_mapping_id: params[:student][:class_mapping_id]}
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
-      else
-        format.html { render :edit }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+        render :json => @saved_student
       end
-    end
   end
 
   def show_selected_id
