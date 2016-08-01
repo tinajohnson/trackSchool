@@ -13,6 +13,7 @@ ActiveAdmin.register User  do
 
       index do
          selectable_column
+         column :name
          column :id
          column :email
          column :role
@@ -32,7 +33,8 @@ ActiveAdmin.register User  do
 
 
     form do |f|
-      f.inputs "Label" do
+      f.inputs "Users" do
+        f.input :name  
         f.input :email
         f.input :school_id, :as => :select, :collection => School.all.collect { |school| [school.school_name, school.id] }
         f.input :role , as: :select, collection: ['Teacher','Admin','RB User']
