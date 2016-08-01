@@ -1,0 +1,47 @@
+<h3> Manage Teachers</h3>
+
+
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Teacher Email</th>
+    <th>Class Mapping</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+
+
+
+
+  <tbody>
+  <% allot = Allotment .all %>
+  <% allot.each do |allot| %>
+      <tr>
+        <% if allot.role == "Teacher" %>
+
+            <% sec_std = ClassMapping.find(allot.class_mappings_id)%>
+            <% std = Standard.find(sec_std.standard_id) %>
+            <% sec = Section.find(sec_std.standard_id) %>
+            <td><%= User.find(allot.user_id).email %></td>
+            <td><%= std.standard_name%> <%= sec.section_name%></td>
+            <td><%= link_to "Delete" , teacher_delete_path(id: allot.id)%></td>
+            <!--<td><#%= link_to "Allot" ,  teacher_allot_classes_path(id: allot.user_id) %></td>-->
+      <% end %>
+  <% end %>
+  </tbody>
+  <tbody>
+  <% person = User.all %>
+  <% person.each do |person| %>
+      <tr>
+        <% if person.role == "teacher" && !(Allotment.exists?(user_id: person.id))%>
+            <td><%=person.email  %></td>
+            <td> Unassigned </td>
+            <td><%= link_to "Allot" ,  teacher_allot_classes_path(id: person.id) %></td>
+        <% end %>
+  <% end %>
+  </tbody>
+</table>
+
