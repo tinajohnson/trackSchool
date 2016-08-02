@@ -21,7 +21,7 @@ class AttendancesController < ApplicationController
      @id
      @name
      if(params["Filter"]=="By Name")
-       temp = Student.find_by_name(params["student"])
+       temp = Student.where(:name => params["student"]).first
        @name = params["student"]
        @id = temp.id
      end

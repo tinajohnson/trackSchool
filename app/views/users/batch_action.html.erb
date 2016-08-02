@@ -21,7 +21,7 @@
         <% c_map.each do |c_map| %>
             <% std = Standard.find(c_map.standard_id) %>
             <% sec = Section.find(c_map.section_id) %>
-            <option value=<%=c_map.id%> ><%=std.standard_name%> <%= sec.section_name %> </option>
+            <option value=<%=c_map.id%> ><%=std.name%> <%= sec.name %> </option>
         <%end%>
       </select>
     </div>

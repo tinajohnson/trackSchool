@@ -6,6 +6,10 @@ var Standard = React.createClass({
         }
     },
 
+    setEditMode() {
+        this.setState({editMode: true});
+    },
+
     render() {
         if ( this.state.editMode ) {
             markup = (
@@ -35,10 +39,6 @@ var Standard = React.createClass({
             );
         }
         return markup;
-    },
-
-    setEditMode() {
-        this.setState({editMode: true});
     },
 
     handleNameChange(e) {

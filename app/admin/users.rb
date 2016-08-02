@@ -36,7 +36,7 @@ ActiveAdmin.register User  do
       f.inputs "Users" do
         f.input :name  
         f.input :email
-        f.input :school_id, :as => :select, :collection => School.all.collect { |school| [school.school_name, school.id] }
+        f.input :school_id, :as => :select, :collection => School.all.collect { |school| [school.name, school.id] }
         f.input :role , as: :select, collection: ['Teacher','Admin','RB User']
 
       end
